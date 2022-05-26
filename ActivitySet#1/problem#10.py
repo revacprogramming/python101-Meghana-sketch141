@@ -1,14 +1,19 @@
-fname = input("mbox-short.txt: ")
-if len(fname) < 1 : fname = "mbox-short.txt"
-
-fh = open(fname)
-count = 0
-for line in fh:
-    x=line.rstrip().split()
-    if 'From' in x:
-        print(x[1])
-        count+=1
-    else:
-        continue
-        
-print("There were", count, "lines in the file with From as the first word")
+fname = input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+counts = {}
+for line in handle:
+    word = line.split()
+    if len(word) < 3 or word[0] != "From" : continue
+    email = word[1]
+    if email in counts :
+        counts[email] = 1 + counts[email]
+    else :
+        counts.update({email:1})
+max = 0
+value = ""
+for i in counts:
+    if (counts[i]) > max :
+        max = counts[i]
+        value = i
+print(value, max)
