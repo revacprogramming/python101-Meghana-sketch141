@@ -1,2 +1,6 @@
-# Network Programming
-# https://www.py4e.com/lessons/network
+a=12
+if(a<5):
+  print("g")
+elif:
+  print("gjk")
+  
